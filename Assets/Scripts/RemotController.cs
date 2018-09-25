@@ -104,7 +104,7 @@ public class RemotController : MonoBehaviour
         {
 
             targets.Add(terminal.nickName);
-            int value = terminal.transform.FindChild("Dropdown").GetComponent<Dropdown>().value;
+            int value = terminal.transform.Find("Dropdown").GetComponent<Dropdown>().value;
             AppInfo appInfo = GetAppInfo(value);
             conn.resstart(terminal.nickName, appInfo.name, appInfo.version);
             terminal.Clear();
@@ -119,7 +119,7 @@ public class RemotController : MonoBehaviour
         {
 
             targets.Add(terminal.nickName);
-            int value = terminal.transform.FindChild("Dropdown").GetComponent<Dropdown>().value;
+            int value = terminal.transform.Find("Dropdown").GetComponent<Dropdown>().value;
             AppInfo appInfo = GetAppInfo(value);
             conn.install(terminal.nickName, appInfo.name, appInfo.version);
             terminal.Clear();

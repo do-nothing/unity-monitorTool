@@ -34,10 +34,10 @@ public class Device : MonoBehaviour {
         button = GetComponent<Button>();
         text = GetComponentInChildren<Text>();
         list = GetComponentInChildren<Dropdown>();
-        icon = transform.FindChild("Icon").GetComponent<Image>();
-        bgColor = transform.FindChild("Background").GetComponent<Image>();
-        netSta = transform.FindChild("NetworkStatus").GetComponent<Image>();
-        cover = transform.FindChild("Body/Cover").GetComponent<Image>();
+        icon = transform.Find("Icon").GetComponent<Image>();
+        bgColor = transform.Find("Background").GetComponent<Image>();
+        netSta = transform.Find("NetworkStatus").GetComponent<Image>();
+        cover = transform.Find("Body/Cover").GetComponent<Image>();
 
         EventTriggerListener.Get(button.gameObject).onClick = OnButtonClick;
         EventTriggerListener.Get(list.gameObject).onSelect = OnSelectChange;
@@ -63,7 +63,7 @@ public class Device : MonoBehaviour {
      public void OnButtonClick(GameObject go) {
          if (go.name == this.gameObject.name) {
              onSelect = !onSelect;
-             transform.FindChild("Highlight").GetComponent<Image>().enabled = onSelect;            
+             transform.Find("Highlight").GetComponent<Image>().enabled = onSelect;            
              List<Device> terminals = RemotController.GetInstance().terminals;
              if (onSelect) {
                  terminals.Add(this);
@@ -86,7 +86,7 @@ public class Device : MonoBehaviour {
 
      public void Clear() {
          onSelect = !onSelect;
-         transform.FindChild("Highlight").GetComponent<Image>().enabled = onSelect;
+         transform.Find("Highlight").GetComponent<Image>().enabled = onSelect;
      }
 
      public void Feed() {
